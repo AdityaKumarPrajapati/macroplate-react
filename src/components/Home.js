@@ -12,7 +12,7 @@ const Home = () => {
     <div>
       {isSidebarOpen && <div className="overlay" onClick={closeSidebar}></div>}
       <HomePage />
-      {isSidebarOpen && <Sidebar />}
+      <Sidebar />
     </div>
   );
 }
