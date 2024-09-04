@@ -48,6 +48,14 @@
     width: 50%;
   }
 
+  .bannerContent div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 52px;
+  }
+
   .bannerImage img {
     height: 100%;
     width: 100%;
@@ -68,7 +76,7 @@
     line-height: 67px;
     font-size: 52px;
     color: #fff;
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
