@@ -1,4 +1,4 @@
-/* src/components/Home.css */
+@import url('../css/Global.css');
 
 .container {
   max-width: 1440px;
@@ -74,4 +74,15 @@
     align-items: center;
     margin: 0 17%;
     font-family: 'SuisseWorks-Regular-WebS';
+  }
+
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
   }

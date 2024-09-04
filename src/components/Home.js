@@ -1,15 +1,18 @@
 // src/components/Home.js
-
 import React from 'react';
-import HomePageBanner from './HomePageBanner';
-import ReadyEatComponent from './ReadyEatComponent';
-import './css/Home.css'; // Import CSS for styling the Home component
+import './css/Home.css';
+import HomePage from './HomePage';
+import Sidebar from './Sidebar';
+import { useSidebar } from './context/SidebarContext';
 
-function Home() {
+const Home = () => {
+  const { isSidebarOpen, closeSidebar } = useSidebar();
+
   return (
-    <div className="home">
-      <HomePageBanner />
-      <ReadyEatComponent />
+    <div>
+      {isSidebarOpen && <div className="overlay" onClick={closeSidebar}></div>}
+      <HomePage />
+      {isSidebarOpen && <Sidebar />}
     </div>
   );
 }

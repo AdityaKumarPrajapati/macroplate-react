@@ -5,13 +5,15 @@ import './css/Navbar.css'; // Import CSS for styling the Navbar
 import Navbar from './Navbar';
 import LoginAndAccount from './LoginAndAccount';
 
-function NavbarComponents() {
+function NavBarComponents() {
     return (
-        <div className='navBarComponents container'>
-            <Navbar />
-            <LoginAndAccount />
+        <div className='navBarWrapper'>
+            <div className='navBarComponents container'>
+                <Navbar />
+                <LoginAndAccount />
+            </div>
         </div>
     );
 }
 
-export default NavbarComponents;
+export default NavBarComponents;

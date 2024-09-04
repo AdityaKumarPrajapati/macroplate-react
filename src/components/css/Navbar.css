@@ -1,4 +1,11 @@
-/* src/components/Navbar.css */
+@import url('../css/Global.css');
+
+.navBarWrapper {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: var(--primary-white);
+}
 
 .navBarComponents {
   display: flex;
@@ -15,7 +22,7 @@
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
-  gap: 56px;
+  gap: 100px;
 }
 
 .nav-logo {
@@ -29,14 +36,15 @@
   display: flex;
   margin: 0;
   padding: 0;
-  gap: 24px;
+  gap: 48px;
 }
 
 .nav-links {
   color: black;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 12px;
   font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
 .nav-links:hover {
@@ -46,8 +54,17 @@
 .getStartedBtn {
   padding: 12px 30px 10px;
   border: 2px solid #000000;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
   letter-spacing: 0;
   font-family: 'Montserrat', sans-serif;
+  background-color: var(--primary-white);
+  cursor: pointer;
+}
+
+.getStartedBtn:hover {
+  background-color: #000000;
+  color: #fff;
+  border: 2px solid #000000;
+  transition: 200ms;
 }

@@ -1,3 +1,5 @@
+@import url('../css/Global.css');
+
 .fixedComponent {
     background: #000;
     height: 40px;

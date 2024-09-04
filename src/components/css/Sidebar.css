@@ -1,0 +1,23 @@
+@import url('../css/Global.css');
+
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 450px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transform: translateX(100%); /* Start off-screen */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+  }
+  
+  .sidebar.open {
+    transform: translateX(0); /* Bring sidebar on-screen */
+  }
+  
+  .sidebar.closed {
+    transform: translateX(100%); /* Move sidebar off-screen */
+  }
+  

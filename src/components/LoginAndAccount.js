@@ -1,24 +1,25 @@
-// src/components/Navbar.js
-
+// src/components/LoginAndAccount.js
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import './css/Navbar.css'; // Import CSS for styling the Navbar
+import { Link } from 'react-router-dom';
+import { useSidebar } from './context/SidebarContext';
 
 function LoginAndAccount() {
-    return (
-        <nav className="navbar">
-            <div className="nav-container">
-                <ul className="nav-menu">
-                    <li className="nav-item">
-                        <Link to="/login" className="nav-links">LOG IN</Link>
-                    </li>
-                    <li>
-                        <button className='getStartedBtn'>Get Started</button>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    );
+  const { toggleSidebar } = useSidebar();
+
+  return (
+    <nav className="navbar">
+      <div className="nav-container">
+        <ul className="nav-menu">
+          <li className="nav-item">
+            <Link to="/login" className="nav-links">LOG IN</Link>
+          </li>
+          <li>
+            <button className='getStartedBtn' onClick={toggleSidebar}>GET STARTED</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 }
 
 export default LoginAndAccount;

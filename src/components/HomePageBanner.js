@@ -11,9 +11,9 @@ function HomePageBanner() {
         <img src={bannerImage} alt="Banner" />
       </div>
       <div className='bannerContent'>
-      <p class="title-white title-banner homePageBanner">Award-winning Chefs
-                                Health Driven Menus
-                                Delivered Fresh Daily</p>
+        <p class="title-white title-banner homePageBanner">Award-winning Chefs
+          Health Driven Menus
+          Delivered Fresh Daily</p>
       </div>
     </div>
   );
