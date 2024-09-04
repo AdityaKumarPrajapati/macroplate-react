@@ -1,0 +1,77 @@
+/* src/components/Home.css */
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.marginZero {
+  margin: 0;
+}
+
+.paddingZero {
+  padding: 0;
+}
+
+.home {
+    /* padding: 2rem; */
+    text-align: center;
+  }
+  
+  .home-banner {
+    background-color: #f8f8f8;
+    padding: 4rem;
+    border-radius: 8px;
+  }
+  
+  .home-banner h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  
+  .home-banner p {
+    font-size: 1.25rem;
+    color: #555;
+  }
+  
+
+  .homePageBannerWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 600px;
+    background: #04253C;
+  }
+
+  .bannerImage, .bannerContent {
+    height: 100%;
+    width: 50%;
+  }
+
+  .bannerImage img {
+    height: 100%;
+    width: 100%;
+  }
+
+  /* .bannerImage {
+    margin: 0 auto;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    background-image: url('../../asset/images/bnr_img.png');
+    background-position: 0 75%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  } */
+
+  .homePageBanner {
+    font-weight: 400;
+    line-height: 67px;
+    font-size: 52px;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 17%;
+    font-family: 'SuisseWorks-Regular-WebS';
+  }

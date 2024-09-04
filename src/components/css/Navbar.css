@@ -1,0 +1,53 @@
+/* src/components/Navbar.css */
+
+.navBarComponents {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 56px;
+}
+
+.nav-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 24px;
+}
+
+.nav-links {
+  color: black;
+  text-decoration: none;
+  font-size: 13px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav-links:hover {
+  /* color: #ddd; */
+}
+
+.getStartedBtn {
+  padding: 12px 30px 10px;
+  border: 2px solid #000000;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0;
+  font-family: 'Montserrat', sans-serif;
+}
