@@ -1,0 +1,52 @@
+.ourApproachTittle {
+    background: rgba(10, 171, 101, 0.102);
+    padding: 44px 0;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.ourApproachHeading {
+    font-size: 44px;
+    font-weight: 100;
+    margin-bottom: 20px !important;
+    line-height: 55px;
+}
+
+.ourApproachDescription{
+    max-width: 700px;
+    margin: 0 auto !important;
+}
+
+p{
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.SustainableImage {
+    background: rgb(4, 37, 60, 0.3);
+    height: 300px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.SustainableContent, .ReducingContent {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.SustainableTitle, .SustainableText, .ReducingTitle, .ReducingText {
+    width: 50%;
+    font-size: 20px;
+    margin: 0 15px !important;
+    line-height: 40px;
+    text-align: left;
+}
+
+.SustainableTitleText, .ReducingTitleText {
+    font-weight: 600;
+    max-width: 600px;
+}
+
+.SustainableText {
+    max-width: 600px;
+}
