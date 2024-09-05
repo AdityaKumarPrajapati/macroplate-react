@@ -1,6 +1,7 @@
 import React from "react";
 import OurApproachTittle from "./OurApproachTittle";
 import './css/OurApproach.css';
+import Nutritionist from "./Nutritionist";
 
 const OurApproach = () => {
   return (
@@ -36,6 +37,7 @@ const OurApproach = () => {
           </div>
         </div>
       </div>
+      <Nutritionist />
     </div>
   );
 }
