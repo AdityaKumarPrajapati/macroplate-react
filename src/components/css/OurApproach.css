@@ -33,13 +33,61 @@ p{
     line-height: 40px;
 }
 
-.SustainableImage {
+.SustainableImage, .ReducingImage, .LeaveNoTraceImage, .OffsettingEmmissionsImage {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     padding: 209px 0;
     margin-bottom: 45px;
+    color: var(--primary-white);
+    text-align: center;
+    position: relative;
+    font-weight: 600;
+    font-size: 64px;
+    background-color: rgb(4, 37, 60, 0.3);
+}
+
+.SustainableImage::before, .ReducingImage::before, .LeaveNoTraceImage::before, .OffsettingEmmissionsImage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity for the shade effect */
+    z-index: 1;
+}
+
+.SustainableImage *, .ReducingImage *, .LeaveNoTraceImage *, .OffsettingEmmissionsImage * {
+    position: relative;
+    z-index: 2; /* Ensure text is above the shaded overlay */
+}
+
+.SustainableImage::after, .ReducingImage::after, .LeaveNoTraceImage::after, .OffsettingEmmissionsImage::after {
+    content: '';
+    position: absolute;
+    border-right: 10px solid var(--primary-green);
+    border-bottom: 10px solid var(--primary-green);
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    top: 10px;
+    left: 10px;
+}
+
+.SustainableImage {
     background-image: url('../../asset/images/sustainable-source.jpg');
+}
+
+.ReducingImage {
+    background-image: url('../../asset/images/reducing-waste.jpg');
+}
+
+.LeaveNoTraceImage {
+    background-image: url('../../asset/images/leaving-no-trace.jpg');
+}
+
+.OffsettingEmmissionsImage {
+    background-image: url('../../asset/images/offsetting.jpg');
 }
 
 .SustainableContent, .ReducingContent {
@@ -47,7 +95,7 @@ p{
     margin-bottom: 50px;
 }
 
-.SustainableTitle, .SustainableText, .ReducingTitle, .ReducingText {
+.SustainableLeft, .SustainableRightText {
     width: 50%;
     font-size: 20px;
     margin: 0 15px !important;
@@ -55,11 +103,11 @@ p{
     text-align: left;
 }
 
-.SustainableTitleText, .ReducingTitleText {
+.SustainableLeftText {
     font-weight: 600;
     max-width: 600px;
 }
 
-.SustainableText {
+.SustainableRightText {
     max-width: 600px;
 }
