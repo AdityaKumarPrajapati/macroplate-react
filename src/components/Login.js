@@ -1,34 +1,68 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './css/Login.css';
-
+ 
 function Login() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle the form submission, e.g., authenticate the user
-    console.log('Username:', username);
-    console.log('Password:', password);
+  
+    let loginResult = await fetch('http://localhost:8000/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        email, // Your data payload for POST
+        password
+      })
+    })
+    if (loginResult.ok) {
+      // Parse the loginResult JSON
+      const data = await loginResult.json();
+      console.log('Login successful:', data.user);
+
+      localStorage.setItem('user', JSON.stringify(data.user));
+      // Redirect to the dashboard
+      navigate('/dashboard'); // Replaces history.push
+    } else {
+      const errorData = await loginResult.json();
+      document.getElementById('errorElement').innerHTML = errorData.message
+        console.error('Login failed:', errorData.message);
+    }
+    // if (loginResult.ok) {
+    //   console.log(await loginResult.json());
+    // }
+    // // .then(response => response.json())
+    // // .then(data => console.log(data))
+    // // .catch(error => console.error('Error:', error));
+    // console.log(loginResult, "loginResult");
   };
 
+  
   return (
     <form onSubmit={handleSubmit} style={formStyle}>
+
+      <p style={loginError} id="errorElement"></p>
         <h3>LOG IN</h3>
       <div style={formGroupStyle}>
         <input
           type="text"
-          id="username"
-          value={username}
-          onChange={handleUsernameChange}
+          id="email"
+          value={email}
+          onChange={handleEmailChange}
           required
           style={inputStyle}
         />
@@ -87,5 +121,7 @@ const buttonStyle = {
     alignItems: 'center',
     width: '100%',
 };
-
+const loginError = {
+  color:'red'
+}
 export default Login;

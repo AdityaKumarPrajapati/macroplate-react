@@ -3,6 +3,7 @@
 import React from 'react';
 import bannerImage from '../asset/images/bnr_img.png'
 import './css/Home.css'; // Import CSS for styling the Home component
+import ZipCodeStarted from './ZipCodeStarted';
 
 function HomePageBanner() {
   return (
@@ -11,9 +12,14 @@ function HomePageBanner() {
         <img src={bannerImage} alt="Banner" />
       </div>
       <div className='bannerContent'>
-        <p class="title-white title-banner homePageBanner">Award-winning Chefs
-          Health Driven Menus
-          Delivered Fresh Daily</p>
+        <div className='bannerContentContainer'>
+          <div>
+            <p class="title-white marginZero title-banner homePageBanner">Award-winning Chefs</p>
+            <p class="title-white marginZero title-banner homePageBanner">Health Driven Menus</p>
+            <p class="title-white marginZero title-banner homePageBanner">Delivered Fresh Daily  </p>
+          </div>
+          <ZipCodeStarted />
+        </div>
       </div>
     </div>
   );
