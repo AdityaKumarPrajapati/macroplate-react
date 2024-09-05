@@ -26,6 +26,7 @@ const OurApproach = () => {
           </div>
         </div>
       ))}
+
       <Nutritionist />
     </div>
   );

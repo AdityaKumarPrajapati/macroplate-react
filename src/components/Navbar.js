@@ -38,6 +38,9 @@ function Navbar() {
                     <li className="nav-item">
                         <Link to="/our-approach" className="nav-links">OUR APPROACH</Link>
                     </li>
+                    <li className="nav-item">
+                        <a href="https://macro-plate.com/blog/" target="_blank" className='nav-links'>BLOG</a>
+                    </li>
                 </ul>
             </div>
         </nav>
