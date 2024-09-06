@@ -1,20 +1,41 @@
+// src/components/SideBar/components/MealSelection.js
 import React from "react";
 import MealsPerDay from "./MealsPerDay";
 import ProgramLength from "./ProgramLength";
 import BreakfastSelection from "./BreakfastSelection";
 import DietaryPreferencesSelection from "./DietaryPreferencesSelection";
 
-const MealSelection = () => {
+const MealSelection = ({ checkoutData, setCheckoutData, validationErrors, setValidationErrors }) => {
     return (
-       <div className="mealDay">
-            <MealsPerDay />
+        <div className="mealDay">
+            <MealsPerDay
+                checkoutData={checkoutData}
+                setCheckoutData={setCheckoutData}
+                validationError={validationErrors.mealsPerDay}
+                setValidationErrors={setValidationErrors} // Pass setValidationErrors here
+            />
             <hr />
-            <ProgramLength />
+            <ProgramLength
+                checkoutData={checkoutData}
+                setCheckoutData={setCheckoutData}
+                validationError={validationErrors.programLength}
+                setValidationErrors={setValidationErrors} // Pass setValidationErrors here
+            />
             <hr />
-            <BreakfastSelection />
+            <BreakfastSelection
+                checkoutData={checkoutData}
+                setCheckoutData={setCheckoutData}
+                validationError={validationErrors.breakfastSelection}
+                setValidationErrors={setValidationErrors} // Pass setValidationErrors here
+            />
             <hr />
-            <DietaryPreferencesSelection />
-       </div>
+            <DietaryPreferencesSelection
+                checkoutData={checkoutData}
+                setCheckoutData={setCheckoutData}
+                validationError={validationErrors.dietaryPreferences}
+                setValidationErrors={setValidationErrors} // Pass setValidationErrors here
+            />
+        </div>
     );
 }
 
