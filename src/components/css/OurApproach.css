@@ -33,7 +33,12 @@ p{
     line-height: 40px;
 }
 
-.SustainableImage, .ReducingImage, .LeaveNoTraceImage, .OffsettingEmmissionsImage {
+.imageText {
+    line-height: 0;
+    font-size: 54px !important;
+}
+
+.sustainableImage, .reducingImage, .leaveNoTraceImage, .offsettingEmmissionsImage {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -43,11 +48,10 @@ p{
     text-align: center;
     position: relative;
     font-weight: 600;
-    font-size: 64px;
     background-color: rgb(4, 37, 60, 0.3);
 }
 
-.SustainableImage::before, .ReducingImage::before, .LeaveNoTraceImage::before, .OffsettingEmmissionsImage::before {
+.sustainableImage::before, .reducingImage::before, .leaveNoTraceImage::before, .offsettingEmmissionsImage::before {
     content: '';
     position: absolute;
     top: 0;
@@ -58,44 +62,44 @@ p{
     z-index: 1;
 }
 
-.SustainableImage *, .ReducingImage *, .LeaveNoTraceImage *, .OffsettingEmmissionsImage * {
+.sustainableImage *, .reducingImage *, .leaveNoTraceImage *, .offsettingEmmissionsImage * {
     position: relative;
     z-index: 2; /* Ensure text is above the shaded overlay */
 }
 
-.SustainableImage::after, .ReducingImage::after, .LeaveNoTraceImage::after, .OffsettingEmmissionsImage::after {
+.sustainableImage::after, .reducingImage::after, .leaveNoTraceImage::after, .offsettingEmmissionsImage::after {
     content: '';
     position: absolute;
     border-right: 10px solid var(--primary-green);
     border-bottom: 10px solid var(--primary-green);
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
+    width: calc(100% - 0px);
+    height: calc(100% - 0px);
     top: 10px;
     left: 10px;
 }
 
-.SustainableImage {
+.sustainableImage {
     background-image: url('../../asset/images/sustainable-source.jpg');
 }
 
-.ReducingImage {
+.reducingImage {
     background-image: url('../../asset/images/reducing-waste.jpg');
 }
 
-.LeaveNoTraceImage {
+.leaveNoTraceImage {
     background-image: url('../../asset/images/leaving-no-trace.jpg');
 }
 
-.OffsettingEmmissionsImage {
+.offsettingEmmissionsImage {
     background-image: url('../../asset/images/offsetting.jpg');
 }
 
-.SustainableContent, .ReducingContent {
+.sustainableContent {
     display: flex;
     margin-bottom: 50px;
 }
 
-.SustainableLeft, .SustainableRightText {
+.sustainableLeft, .sustainableRight {
     width: 50%;
     font-size: 20px;
     margin: 0 15px !important;
@@ -103,11 +107,99 @@ p{
     text-align: left;
 }
 
-.SustainableLeftText {
+.sustainableLeftText {
     font-weight: 600;
     max-width: 600px;
 }
 
-.SustainableRightText {
+.sustainableRight {
     max-width: 600px;
+}
+
+.nutritionPillarsHeading {
+    font-size: 44px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 55px !important;
+    padding-bottom: 28px !important;
+    text-align: left;
+    border-bottom: 3px solid var(--default-black);
+    margin-bottom: 75px !important;
+}
+
+.leftBoxCard{
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    width: 50%;
+}
+
+.leftBox {
+    height: 470Px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 70px !important;
+    margin-bottom: 65px;
+    position: relative;
+    background-image: url('../../asset/images/moderation.jpg');
+}
+
+.leftBoxContent {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    background-color: var(--primary-white);
+}
+
+.leftBoxPiller {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    background-color: var(--primary-white);
+}
+
+.leftBoxInnerText1 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    left: 0;
+    top: 0;
+    padding: 45px;
+    text-align: center;
+    letter-spacing: -2px;
+    color: var(--primary-text-black-color);
+    font-size: 47px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.leftBoxInnerText2 {
+    background-color: var(--primary-white);
+    transform: rotateY( 180deg );
+    font-size: 20px;
+    color: #4F4F4F;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 149.9%;
+    font-weight: 400;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    left: 0;
+    top: 0;
+    padding: 45px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
