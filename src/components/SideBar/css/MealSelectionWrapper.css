@@ -1,0 +1,48 @@
+@import url('../../css/Global.css');
+
+.mealSelectionContentContainer {
+    display: flex;
+    gap: 20px;
+    text-align: left;
+}
+
+.mealSelectionContentText {
+    width: 50%;
+}
+
+.mealSelectionContentData {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.radioBtnConatiner {
+    display: flex;
+    gap: 9px;
+}
+
+.mealSelectionLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black, #020202);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.mealSelectionContentText p {
+    color: #84929E;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}

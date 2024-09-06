@@ -14,6 +14,7 @@
     opacity: 0;
     /* transition: transform 0.3s ease-in-out; */
     transition: opacity 0.4s ease, transform 0.4s ease;
+    overflow-y: auto;
   }
   
   .sidebar.open {
@@ -26,3 +27,13 @@
     transform: translateX(100%); /* Move sidebar off-screen */
   }
   
+
+  .step-1 {
+    padding: 24px 24px 0;
+}
+
+.mealDay {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
