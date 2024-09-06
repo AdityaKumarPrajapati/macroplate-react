@@ -37,3 +37,11 @@
     flex-direction: column;
     gap: 24px;
 }
+
+.step2Wrapper, .step3Wrapper {
+    padding: 24px 24px 0 24px;
+}
+
+.backBtnSvgContainer {
+    text-align: left;
+}
