@@ -15,33 +15,62 @@
     /* transition: transform 0.3s ease-in-out; */
     transition: opacity 0.4s ease, transform 0.4s ease;
     overflow-y: auto;
-  }
-  
-  .sidebar.open {
+}
+
+.sidebar.open {
     opacity: 1;
     right: 0;
-    transform: translateX(0); /* Bring sidebar on-screen */
-  }
-  
-  .sidebar.closed {
-    transform: translateX(100%); /* Move sidebar off-screen */
-  }
-  
+    transform: translateX(0);
+    /* Bring sidebar on-screen */
+}
 
-  .step-1 {
+.sidebar.closed {
+    transform: translateX(100%);
+    /* Move sidebar off-screen */
+}
+
+
+.step-1 {
     padding: 24px 24px 0;
 }
 
-.mealDay {
+.step-2 {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-.step2Wrapper, .step3Wrapper {
+.mealDay,
+.mealDaySelectionContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.step2Wrapper,
+.step3Wrapper {
     padding: 24px 24px 0 24px;
 }
 
 .backBtnSvgContainer {
     text-align: left;
+}
+
+hr {
+    margin: 0;
+}
+
+.error-text {
+    text-align: left;
+    font-size: 13px;
+    color: red;
+    margin-bottom: 0px;
+    text-transform: capitalize;
+    line-height: normal;
+}
+
+.mealSelectionWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }

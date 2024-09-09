@@ -2,25 +2,27 @@ import React from "react";
 import './css/SideBarHeader.css'
 import { useSidebar } from "./context/SidebarContext";
 import SidebarHeaderActiveState from "./utilityComponents/SidebarHeaderActiveState";
+import SidebarHeaderCompletedState from "./utilityComponents/SidebarHeaderCompletedState";
+import SidebarHeaderInactiveState from "./utilityComponents/SidebarHeaderInactiveState";
 
-const SideBarHeader = () => {
+const SideBarHeader = ({ currentPage }) => {
     const { toggleSidebar } = useSidebar();
 
     return (
         <div className="sideBarHeaderWrapper">
             <div className="sideBarHeaderContainer">
                 <div className="statusBar">
-                    <SidebarHeaderActiveState />
+                    { (currentPage === 1) ?  <SidebarHeaderActiveState /> : <SidebarHeaderCompletedState />}
                     <p className="marginZero statusBarHeadetText">SELECT A PLAN</p>
                 </div>
                 <p className="marginZero">_</p>
                 <div className="statusBar">
-                    <SidebarHeaderActiveState />
+                    { (currentPage === 1) ?  <SidebarHeaderInactiveState /> : (currentPage === 2 ? <SidebarHeaderActiveState /> : <SidebarHeaderCompletedState />)}
                     <p className="marginZero statusBarHeadetText">DELIVERY</p>
                 </div>
                 <p className="marginZero">_</p>
                 <div className="statusBar">
-                    <SidebarHeaderActiveState />
+                    { (currentPage === 3) ?  <SidebarHeaderActiveState /> : <SidebarHeaderInactiveState />}
                     <p className="marginZero statusBarHeadetText">CHECKOUT</p>
                 </div>
             </div>
