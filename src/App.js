@@ -12,7 +12,7 @@ import CustomerDashboard from './components/CustomerDashboard';
 import Footer from './components/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { SidebarProvider } from '../src/components/context/SidebarContext';
-import { AuthProvider } from './components/context/AuthContext';
+import { AuthProvider } from '../src/components/context/AuthContext';
 
 function App() {
   return (
