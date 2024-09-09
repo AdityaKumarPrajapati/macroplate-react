@@ -12,26 +12,29 @@ import CustomerDashboard from './components/CustomerDashboard';
 import Footer from './components/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { SidebarProvider } from '../src/components/context/SidebarContext';
+import { AuthProvider } from './components/context/AuthContext';
 
 function App() {
   return (
     <Router>
-      <SidebarProvider>
-        <div className="App">
-          <FixedComponent />
-          <NavBarComponents />
-          <div className="content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/how-it-works" element={<HOWITWORKS />} />
-              <Route path="/our-approach" element={<OurApproach />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/dashboard" element={<CustomerDashboard />} />
-            </Routes>
+      <AuthProvider>
+        <SidebarProvider>
+          <div className="App">
+            <FixedComponent />
+            <NavBarComponents />
+            <div className="content">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/how-it-works" element={<HOWITWORKS />} />
+                <Route path="/our-approach" element={<OurApproach />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/dashboard" element={<CustomerDashboard />} />
+              </Routes>
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-      </SidebarProvider>
+        </SidebarProvider>
+      </AuthProvider>
     </Router>
   );
 }

@@ -16,6 +16,7 @@ function CustomerDashboard() {
 
   return (
     <div>
+      {console.log('----user---', user)}
       <h1>Dashboard</h1>
       {user ? (
         <div>

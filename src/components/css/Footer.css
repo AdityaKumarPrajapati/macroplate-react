@@ -6,7 +6,7 @@
     justify-content: space-between;
 }
 
-li {
+.footerContainerWrapper li {
     list-style: none;
     text-align: left;
     display: flex;
@@ -19,7 +19,7 @@ li {
     gap: 16px;
 }
 
-a {
+.footerContainerWrapper a {
     text-decoration: none;
     font-size: 18px;
     color: #000;
@@ -27,7 +27,7 @@ a {
     line-height: 34px;
 }
 
-ul.footerContent {
+.footerContainerWrapper ul.footerContent {
     display: flex;
     flex-direction: column;
 }

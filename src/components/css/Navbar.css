@@ -45,6 +45,12 @@
   font-size: 12px;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
 }
 
 .nav-links:hover {
@@ -60,6 +66,8 @@
   font-family: 'Montserrat', sans-serif;
   background-color: var(--primary-white);
   cursor: pointer;
+  text-decoration: none;
+  color: #000;
 }
 
 .getStartedBtn:hover {
