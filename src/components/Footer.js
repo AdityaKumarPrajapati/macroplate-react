@@ -19,7 +19,7 @@ function Footer() {
         );
       };
     return (
-        <footer className="container">
+        <footer className="container footerContainerWrapper">
             <div className="footerContainer">
                 <div className="footerSection">
                     <p className="marginZero footerTitle">About Macro Plate</p>
