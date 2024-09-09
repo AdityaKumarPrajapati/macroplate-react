@@ -7,7 +7,7 @@ import DietaryPreferencesSelection from "./DietaryPreferencesSelection";
 
 const MealSelection = ({ checkoutData, setCheckoutData, validationErrors, setValidationErrors }) => {
     return (
-        <div className="mealDay">
+        <div className="mealDaySelectionContainer">
             <MealsPerDay
                 checkoutData={checkoutData}
                 setCheckoutData={setCheckoutData}

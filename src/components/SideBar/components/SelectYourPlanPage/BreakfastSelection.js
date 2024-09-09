@@ -14,6 +14,7 @@ const BreakfastSelection = ({ checkoutData, setCheckoutData, validationError, se
 
     return (
         <div className="mealSelectionWrapper">
+            {validationError && <p className="error-text marginZero">{validationError}</p>}
             <MealSelectionWrapper
                 dataObj={BreakfastContentData}
                 headetText='WOULD YOU LIKE BREAKFAST AS ONE MEAL?'
@@ -21,7 +22,6 @@ const BreakfastSelection = ({ checkoutData, setCheckoutData, validationError, se
                 onChange={handleChange}
                 checkedValues={checkoutData.breakfastSelection} // Single selected value
             />
-            {validationError && <p className="error-text">{validationError}</p>}
         </div>
     );
 }
