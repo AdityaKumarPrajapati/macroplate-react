@@ -3,6 +3,7 @@ import HomePageBanner from './HomePageBanner';
 import ReadyEatComponent from './ReadyEatComponent';
 import CustomerSay from "./CustomerSay";
 import Nutritionist from "./Nutritionist";
+import HomePageMealPlanSlider from "./HomePageMealPlanSlider";
 
 function HomePage() {
     return (
@@ -10,6 +11,7 @@ function HomePage() {
             <HomePageBanner />
             <ReadyEatComponent />
             <CustomerSay />
+            <HomePageMealPlanSlider />
             <Nutritionist />
         </div>
     )
