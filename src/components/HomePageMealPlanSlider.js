@@ -4,10 +4,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NextArrowSvg from "./utilityComponents/NextArrowSvg";
 import PrevArrowSvg from "./utilityComponents/PrevArrowSvg";
-
+import MealPlanContent from "../dataContentObjects/MealPlanContent";
+import './css/HomePageMealPlanSlider.css';
 
 const HomePageMealPlanSlider = () => {
-    var settings = {
+    const settings = {
         dots: false,
         infinite: true,
         speed: 500,
@@ -43,24 +44,65 @@ const HomePageMealPlanSlider = () => {
             }
         ]
     };
+
     return (
         <div className="slider-container container">
             <Slider {...settings}>
-                <div>
-                    <h3>1</h3>
-                </div>
-                <div>
-                    <h3>2</h3>
-                </div>
-                <div>
-                    <h3>3</h3>
-                </div>
-                <div>
-                    <h3>4</h3>
-                </div>
-                <div>
-                    <h3>5</h3>
-                </div>
+                {Object.keys(MealPlanContent).map((planKey) => {
+                    const plan = MealPlanContent[planKey];
+                    return (
+                        <div className="homeMealPlanContainer" key={planKey}>
+                            <div className="headerPlanSection">
+                                <p className="headerPlan marginZero">{plan.header}</p>
+                            </div>
+                            <div className="top">
+                                <div className="imagePlanSection">
+                                    <img className="homeMealImage" src={plan.mealImg} alt={`${plan.header} Plan Image`} />
+                                </div>
+                                <div className="descriptionPlanSection">
+                                    <p className="descriptionPlan marginZero">
+                                        {plan.desc}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="bottom">
+                                <div className="planContentSection">
+                                    <div className="planContents">
+                                        <div className="lunchDinnerSection">
+                                            <div className="sectionContentsHeaderMeal"><span>Lunch / Dinner</span></div>
+                                            <div className="nutritionsPlan d-flex justify-content-between">
+                                                {Object.keys(plan.lunch).map((nutrient) => (
+                                                    <div className="nutrientBoxPlan" key={nutrient}>
+                                                        <div className="nutritionDescPlan">{nutrient}</div>
+                                                        <div className="nutritionValuePlan">{plan.lunch[nutrient]}</div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div className="breakFastSection">
+                                            <div className="sectionContentsHeaderMeal"><span>Breakfast</span></div>
+                                            <div className="nutritionsPlan d-flex justify-content-between">
+                                                {Object.keys(plan.breakfast).map((nutrient) => (
+                                                    <div className="nutrientBoxPlan" key={nutrient}>
+                                                        <div className="nutritionDescPlan">{nutrient}</div>
+                                                        <div className="nutritionValuePlan">{plan.breakfast[nutrient]}</div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div className="sectionMacroDesc"><i>Average macronutrient content</i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="planGetStartedSection">
+                                <button type="button" className="btn btn-success d-flex justify-content-center startPlanBtn"
+                                    data-value={planKey}>GET STARTED</button>
+                            </div>
+                        </div>
+                    );
+                })}
             </Slider>
         </div>
     );

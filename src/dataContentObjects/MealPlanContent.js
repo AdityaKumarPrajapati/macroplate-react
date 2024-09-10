@@ -1,7 +1,10 @@
+import tradImg from '../asset/images/trad-1.png';
+
 const MealPlanContent = {
     traditional: {
         header: 'Traditional',
         desc: 'A balanced amount of complex carbohydrates, lean protein, and healthy fats. If you’re on maintenance mode or just looking for a fresh, healthy meal plan to keep your body fueled, this plan is for you.',
+        mealImg: tradImg,
         lunch: {
             Protein: '32g',
             Carbs: '50g',
@@ -18,6 +21,7 @@ const MealPlanContent = {
     highProtein: {
         header: 'High Protein',
         desc: "If you're interested in reducing carbs but not eliminating them completely, then this plan is for you. This plan provides high protein meals with just the right amount of carbs to keep you energized for your workouts, while still keeping you lean.",
+        mealImg: tradImg,
         lunch: {
             Protein: '48g',
             Carbs: '28g',
@@ -34,6 +38,7 @@ const MealPlanContent = {
     paleo: {
         header: 'Paleo',
         desc: "Our most recommended plan for weight loss, this plan excludes grains, wheat, legumes and dairy leaving you with fibrous vegetables, lean proteins and healthy fats.",
+        mealImg: tradImg,
         lunch: {
             Protein: '42g',
             Carbs: '15g',
@@ -50,6 +55,7 @@ const MealPlanContent = {
     paleoLite: {
         header: 'Paleo Lite',
         desc: "Similar to our Paleo plan, this plan is designed to aid weight loss goals while providing low calorie, protein-focused meals to keep you full throughout the day.",
+        mealImg: tradImg,
         lunch: {
             Protein: '28g',
             Carbs: '15g',
@@ -66,6 +72,7 @@ const MealPlanContent = {
     vegetarian: {
         header: 'Vegetarian',
         desc: "If you're looking for plant-based nutrition, try our vegetarian option. This plan includes balanced macronutrient content, with legumes, tofu, tempeh, and eggs as the primary protein sources.",
+        mealImg: tradImg,
         lunch: {
             Protein: '31g',
             Carbs: '42g',
