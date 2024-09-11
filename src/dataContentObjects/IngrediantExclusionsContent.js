@@ -1,5 +1,5 @@
-export const IngrediantExclusionsContentData = {
-    'Dairy': [
+export const IngrediantExclusionsContentData = [
+    {'Dairy': [
         {
             id: 'dairy_cheese',
             label: 'Cheese',
@@ -10,8 +10,8 @@ export const IngrediantExclusionsContentData = {
             label: 'Yogurt',
             dataValue: 'yogurt'
         }
-    ],
-    'Eggs': [
+    ]},
+    {'Eggs': [
         {
             id: 'eggs_egg_yolk',
             label: 'Egg Yolk',
@@ -22,8 +22,8 @@ export const IngrediantExclusionsContentData = {
             label: 'Hard Boiled Eggs',
             dataValue: 'hard_boiled_eggs'
         }
-    ],
-    'Fruit': [
+    ]},
+    {'Fruit': [
         {
             id: 'fruit_blueberry',
             label: 'Blueberry',
@@ -94,8 +94,8 @@ export const IngrediantExclusionsContentData = {
             label: 'Melons',
             dataValue: 'melons'
         }
-    ],
-    'Nuts/Seeds': [
+    ]},
+    {'Nuts/Seeds': [
         {
             id: 'nuts_almonds',
             label: 'Almonds',
@@ -136,8 +136,8 @@ export const IngrediantExclusionsContentData = {
             label: 'Walnuts',
             dataValue: 'walnuts'
         }
-    ],
-    'Proteins': [
+    ]},
+    {'Proteins': [
         {
             id: 'protein_ground_beef_protein',
             label: 'Ground Beef',
@@ -168,8 +168,8 @@ export const IngrediantExclusionsContentData = {
             label: 'Turkey Bacon',
             dataValue: 'turkey_bacon_protein'
         }
-    ],
-    'Sauces/Spicy': [
+    ]},
+    {'Sauces/Spicy': [
         {
             id: 'sauces_agave',
             label: 'Agave',
@@ -225,8 +225,8 @@ export const IngrediantExclusionsContentData = {
             label: 'Mustard',
             dataValue: 'mustard'
         }
-    ],
-    'Seafood': [
+    ]},
+    {'Seafood': [
         {
             id: 'seafood_all_seafood',
             label: 'All Seafood',
@@ -282,8 +282,8 @@ export const IngrediantExclusionsContentData = {
             label: 'Swordfish',
             dataValue: 'swordfish'
         }
-    ],
-    'Soy': [
+    ]},
+    {'Soy': [
         {
             id: 'soy_edamame',
             label: 'Edamame',
@@ -294,8 +294,8 @@ export const IngrediantExclusionsContentData = {
             label: 'Soy Sauce',
             dataValue: 'soy_sauce'
         }
-    ],
-    'Veggies': [
+    ]},
+    {'Veggies': [
         {
             id: 'veggies_artichoke',
             label: 'Artichoke',
@@ -421,8 +421,8 @@ export const IngrediantExclusionsContentData = {
             label: 'Cucumbers',
             dataValue: 'cucumbers'
         }
-    ],
-    'Grains': [
+    ]},
+    {'Grains': [
         {
             id: 'whole_brown_rice',
             label: 'Brown Rice',
@@ -443,5 +443,5 @@ export const IngrediantExclusionsContentData = {
             label: 'White Rice',
             dataValue: 'white_rice'
         }
-    ],
-}
+    ]},
+]

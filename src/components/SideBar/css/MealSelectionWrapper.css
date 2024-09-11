@@ -21,9 +21,14 @@
     gap: 24px;
 }
 
-.radioBtnConatiner {
+.radioBtnContainer {
     display: flex;
     gap: 9px;
+}
+
+.radioBtnAccordionContainer {
+    display: block;
+    width: 100%;
 }
 
 .mealSelectionLabel {
@@ -49,4 +54,12 @@
     line-height: normal;
     letter-spacing: 3px;
     text-transform: uppercase;
+}
+
+.dietaryExclisionsContentDesc {
+    font-size: 12px;
+    opacity: .6;
+    margin-top: -0.25rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
 }

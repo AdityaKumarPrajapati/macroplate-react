@@ -5,12 +5,13 @@ import '../../css/MealSelectionWrapper.css';
 const MealSelectionWrapper = ({ dataObj, headetText, inputComponent, onChange, checkedValues, componentType }) => {
     return (
         <div className="mealSelectionContentContainer">
-            <div className={`mealSelectionContentText ${componentType === 'counter' ? 'addonSelectionContentText' : ''}`}>
+            {headetText && <div className={`mealSelectionContentText ${componentType === 'counter' ? 'addonSelectionContentText' : ''}`}>
                 <p className="marginZero">{headetText}</p>
-            </div>
+            </div>}
             <div className="mealSelectionContentData">
+                {componentType === 'accordion' && <p className="marginZero dietaryExclisionsContentDesc">Macro Plate prides itself on our extremely customizable meals. Check any foods you don't want included in your meal.</p>}
                 {dataObj.map((item) => (
-                    <div className="radioBtnConatiner" key={item?.id}>
+                    <div className={`radioBtnContainer ${componentType === 'accordion' ? 'radioBtnAccordionContainer' : ''}`} key={item?.id}>
                         {React.cloneElement(inputComponent, {
                             id: item?.id,
                             value: item?.dataValue, // Pass dataValue as the value
@@ -20,6 +21,7 @@ const MealSelectionWrapper = ({ dataObj, headetText, inputComponent, onChange, c
                                 : checkedValues === item?.dataValue, // For radio buttons, compare to dataValue
                             count: componentType === 'counter' ? item.count : undefined,
                             inputName: componentType === 'counter' ? item.name : undefined,
+                            data: componentType === 'accordion' ? item : undefined
                         })}
                         <div className="labelContainer">
                             <label
@@ -28,7 +30,7 @@ const MealSelectionWrapper = ({ dataObj, headetText, inputComponent, onChange, c
                             >
                                 {item?.label}
                             </label>
-                            { componentType === 'counter' && <label className="addonLabel">{item?.price}</label> }
+                            {componentType === 'counter' && <label className="addonLabel">{item?.price}</label>}
                         </div>
                     </div>
                 ))}
