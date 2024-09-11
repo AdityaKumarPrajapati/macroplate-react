@@ -23,6 +23,10 @@
     height: 100%;
 }
 
+.checkoutCard.selected {
+    border: 4px solid #000;
+}
+
 .selectPlanFigure {
     position: relative;
     cursor: pointer;
@@ -45,6 +49,10 @@
     display: block;
 }
 
+.selectPlanFigure img.notSelected {
+    filter: brightness(0.6);
+}
+
 .cardDetails {
     border-radius: 0;
     border: 0 none;
@@ -59,16 +67,59 @@
 }
 
 .formCheck {
-    height: 100%;
+    /* height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
     margin: 0;
     opacity: 0;
-    cursor: pointer;
+    cursor: pointer; */
 }
 
-.customCheckbox {
+.formCheck .customRadioBtn input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 25px;
+    top: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+.formCheck .customRadioBtn input:checked::before {
+    content: unset;
+}
+
+.formCheck .customRadioBtn input:checked + label::after {
+    content: '';
+    background-image: url('../../../asset/images/SideBar/checkmark.png');
+    background-color: #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-color: #0AAB65;
+    color: #0AAB65;
+    display: block;
+    top: 50%;
+    left: 40%;
+    border-radius: 50%;
+    border: 2px solid #0AAB65;
+    height: 48px;
+    width: 48px;
+    position: absolute;
+    pointer-events: none;
+}
+
+.formCheck .customRadioBtn label {
+    position: absolute; /* Label becomes the container for checkmark */
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* .customCheckbox {
     background-image: url('../../../asset/images/SideBar/checkmark.png');
     background-color: #fff;
     background-position: center;
@@ -85,7 +136,7 @@
     width: 48px;
     position: absolute;
     pointer-events: none;
-}
+} */
 
 .planName {
     color: var(--Universal-Colors-Black, #000);
@@ -104,3 +155,4 @@
     color: #686666;
     font-family: 'Montserrat', sans-serif;
 }
+

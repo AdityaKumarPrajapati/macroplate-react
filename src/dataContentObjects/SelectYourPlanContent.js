@@ -7,22 +7,32 @@ import cart5 from '../asset/images/SideBar/cart5.jpg'
 export const SelectYourPlanContentData = {
     traditional : {
         planName : 'TRADITIONAL',
-        imageSource : cart1
+        imageSource : cart1,
+        id: 'vanityIdTrad',
+        dataValue: 'trad'
     },
     highProtein : {
         planName : 'HIGH PROTEIN',
-        imageSource : cart2
+        imageSource : cart2,
+        id: 'vanityIdHp',
+        dataValue: 'hp'
     },
     paleo : {
         planName : 'PALEO',
-        imageSource : cart3
+        imageSource : cart3,
+        id: 'vanityIdPaleo',
+        dataValue: 'paleo'
     },
     paleoLite : {
         planName : 'PALEO LITE',
-        imageSource : cart4
+        imageSource : cart4,
+        id: 'vanityIdPaleolite',
+        dataValue: 'paleolite'
     },
     vegetarian : {
         planName : 'VEGETARIAN',
-        imageSource : cart5
+        imageSource : cart5,
+        id: 'vanityIdVegetarian',
+        dataValue: 'vegetarian'
     }
 }

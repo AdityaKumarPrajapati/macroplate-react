@@ -19,6 +19,7 @@ const Sidebar = () => {
         return savedData
             ? JSON.parse(savedData)
             : {
+                vanityName: '',
                 mealPerDay: "2",
                 programLength: '5',
                 breakfastSelection: null,
@@ -54,6 +55,7 @@ const Sidebar = () => {
     const validateSelections = () => {
         const errors = {};
         if (currentPage === 1) {
+            if (!checkoutData.vanityName) errors.vanityName = 'Please Select Your Plan';
             if (!checkoutData.mealPerDay) errors.mealPerDay = 'Please select meals per day';
             if (!checkoutData.programLength) errors.programLength = 'Please select a program length';
             if (!checkoutData.breakfastSelection) errors.breakfastSelection = 'Please select a breakfast option';

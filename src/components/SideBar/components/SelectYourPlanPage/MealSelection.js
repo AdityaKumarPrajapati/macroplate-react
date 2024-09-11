@@ -4,6 +4,7 @@ import MealsPerDay from "./MealsPerDay";
 import ProgramLength from "./ProgramLength";
 import BreakfastSelection from "./BreakfastSelection";
 import DietaryPreferencesSelection from "./DietaryPreferencesSelection";
+import AddOnSelection from "./AddOnSelection";
 
 const MealSelection = ({ checkoutData, setCheckoutData, validationErrors, setValidationErrors }) => {
     return (
@@ -34,6 +35,11 @@ const MealSelection = ({ checkoutData, setCheckoutData, validationErrors, setVal
                 setCheckoutData={setCheckoutData}
                 validationError={validationErrors.dietaryPreferences}
                 setValidationErrors={setValidationErrors} // Pass setValidationErrors here
+            />
+            <hr />
+            <AddOnSelection
+                checkoutData={checkoutData}
+                setCheckoutData={setCheckoutData}
             />
         </div>
     );

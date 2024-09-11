@@ -3,7 +3,7 @@ import React from "react";
 import './css/RadioButton.css';
 import Form from 'react-bootstrap/Form';
 
-const RadioButton = ({ name, id, value, onChange, checked }) => {
+const RadioButton = ({ name, id, value, label, onChange, checked }) => {
     return (
         <Form.Check
             type="radio"
@@ -12,7 +12,8 @@ const RadioButton = ({ name, id, value, onChange, checked }) => {
             value={value} // Ensure the value is set for each radio button
             className="customRadioBtn"
             onChange={onChange}
-            checked={checked} // The checked state should be based on the selected value
+            checked={checked}
+            label={label}
         />
     );
 }

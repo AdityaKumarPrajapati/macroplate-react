@@ -18,7 +18,12 @@ const SelectYourPlanPage = ({ checkoutData, setCheckoutData, validationErrors, s
     };
     return (
         <>
-            <SelectYourPlan />
+            <SelectYourPlan 
+                checkoutData={checkoutData}
+                setCheckoutData={setCheckoutData}
+                validationError={validationErrors.vanityName}
+                setValidationErrors={setValidationErrors}
+            />
             <div className="mealDay">
                 <MealSelection
                     checkoutData={checkoutData}
