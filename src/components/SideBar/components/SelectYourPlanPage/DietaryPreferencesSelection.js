@@ -1,8 +1,8 @@
-// src/components/SideBar/components/DietaryPreferencesSelection.js
-import React from "react";
+import React, { useEffect } from "react";
 import { DietaryPreferencesContentData } from "../../../../dataContentObjects/DietaryPreferencesContent";
 import MealSelectionWrapper from "./MealSelectionWrapper";
 import CheckboxButton from "../../../utilityComponents/CheckboxButton";
+import { dietaryPreferenceRules } from "../../../../rules/dietaryPreferenceRules";
 
 const DietaryPreferencesSelection = ({ checkoutData, setCheckoutData, validationError, setValidationErrors }) => {
 
@@ -13,10 +13,36 @@ const DietaryPreferencesSelection = ({ checkoutData, setCheckoutData, validation
             const newPreferences = isSelected
                 ? prev.dietary.filter(item => item !== selectedValue)
                 : [...prev.dietary, selectedValue];
-            return { ...prev, dietary: newPreferences };
+            const updatedAllergies = updateAllergies(newPreferences);
+
+            return { 
+                ...prev, 
+                dietary: newPreferences, 
+                allergies: updatedAllergies,
+            };
         });
         setValidationErrors(prev => ({ ...prev, dietary: null }));
     };
+
+    const updateAllergies = (preferences) => {
+        let allergies = [];
+
+        preferences.forEach(pref => {
+            if (dietaryPreferenceRules[pref]) {
+                allergies = [...allergies, ...dietaryPreferenceRules[pref]];
+            }
+        });
+
+        return allergies;
+    };
+
+    useEffect(() => {
+        const initialAllergies = updateAllergies(checkoutData.dietary);
+        setCheckoutData(prev => ({ 
+            ...prev, 
+            allergies: initialAllergies 
+        }));
+    }, [checkoutData.dietary, setCheckoutData]);
 
     return (
         <div className="mealSelectionWrapper">

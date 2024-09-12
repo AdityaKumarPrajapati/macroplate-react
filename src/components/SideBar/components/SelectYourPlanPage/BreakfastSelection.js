@@ -1,4 +1,3 @@
-// src/components/SideBar/components/BreakfastSelection.js
 import React from "react";
 import { BreakfastContentData } from "../../../../dataContentObjects/BreakfastContent";
 import MealSelectionWrapper from "./MealSelectionWrapper";

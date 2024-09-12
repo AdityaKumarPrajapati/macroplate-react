@@ -9,6 +9,10 @@ const DeliveryInfo = ({ checkoutData, setCheckoutData, validationErrors, setVali
         setCheckoutData((prev) => ({ ...prev, [name]: value }));
         setValidationErrors((prev) => ({ ...prev, [name]: null })); 
     }
+
+    const handleFirstDeliveryDate = (date) => {
+        setCheckoutData((prev) => ({ ...prev, firstDeliveryDate: date }));
+    }
     return (
         <div className="deliveryInfoWrapper">
             <p className="marginZero personalInfoText">DELIVERY INFO</p>
@@ -84,7 +88,9 @@ const DeliveryInfo = ({ checkoutData, setCheckoutData, validationErrors, setVali
             </div>
 
             <div className="nextDeliveryDropdownContainer">
-                <DropdownComponent />
+                <DropdownComponent 
+                    onSelect={handleFirstDeliveryDate}
+                />
             </div>
         </div>
     );

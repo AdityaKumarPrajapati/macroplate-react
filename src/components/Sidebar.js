@@ -9,6 +9,7 @@ import SideBarCheckoutButton from './utilityComponents/SideBarCheckoutButton';
 import BackButtonSvg from './utilityComponents/BackButtonSvg';
 import SidebarButton from './utilityComponents/SidebarButton';
 import ShippingPlan from './SideBar/components/ShippingPage/ShippingPlan';
+import BillingPlan from './SideBar/components/BillingPage/BillingPlan';
 
 const Sidebar = () => {
     const { isSidebarOpen } = useSidebar();
@@ -24,6 +25,8 @@ const Sidebar = () => {
                 programLength: '5',
                 breakfastSelection: null,
                 dietary: [],
+                allergies: [],
+                allergyNotes: '',
                 email: '',
                 zipCode: '',
                 firstName: '',
@@ -33,7 +36,8 @@ const Sidebar = () => {
                 suite: '',
                 city: '',
                 state: '',
-                deliveryNotes: ''
+                deliveryNotes: '',
+                firstDeliveryDate: ''
             };
     };
 
@@ -104,7 +108,10 @@ const Sidebar = () => {
                             setValidationErrors={setValidationErrors}
                         />
                     </div>
-                    <SideBarCheckoutButton onCheckoutClick={() => handleCheckoutClick(2)} />
+                    <SideBarCheckoutButton 
+                        onCheckoutClick={() => handleCheckoutClick(2)} 
+                        checkoutData={checkoutData}
+                    />
                 </div>
             )}
             {currentPage === 2 && (
@@ -133,7 +140,12 @@ const Sidebar = () => {
                         setCurrentPage={setCurrentPage}
                     />
                     <div>
-                        Hellooo
+                        <BillingPlan 
+                            checkoutData={checkoutData}
+                            setCheckoutData={setCheckoutData}
+                            validationErrors={validationErrors}
+                            setValidationErrors={setValidationErrors}
+                        />
                         <SidebarButton onCheckoutClick={() => handleCheckoutClick(3)} text='PLACE ORDER' />
                     </div>
                 </div>

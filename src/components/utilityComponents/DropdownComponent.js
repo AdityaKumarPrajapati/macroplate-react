@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import { getNextMondays, formatDate, formatDateWithYear } from "../../helperComponents/sidebarFirstDeliverDates";
 import './css/DropdownComponent.css'
 
-const DropdownComponent = () => {
+const DropdownComponent = ({ onSelect }) => {
+    const [mondays, setMondays] = useState([]);
+    const [selectedDate, setSelectedDate] = useState("");
+
+    useEffect(() => {
+        const fetchedMondays = getNextMondays();
+        setMondays(fetchedMondays);
+        // Set the default selected date to the first Monday
+        if (fetchedMondays.length > 0 && selectedDate === '') {
+            const firstMonday = formatDate(fetchedMondays[0]);
+            setSelectedDate(firstMonday);
+        }
+    }, [onSelect]);
+
+    const handleSelectDate = (monday) => {
+        const formattedDate = formatDate(monday);
+        setSelectedDate(formattedDate);
+        onSelect(formatDateWithYear(monday)); // Pass selected date to parent
+    };
+
     const CustomArrow = () => (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <g clip-path="url(#clip0_5330_1122)">
@@ -20,13 +40,19 @@ const DropdownComponent = () => {
         <div className="dropDownContainer">
             <DropdownButton
                 variant="outline-secondary"
-                title={<span className="dropdownArrow">Dropdown <CustomArrow /></span>}
+                title={<span className="dropdownArrow">{selectedDate} <CustomArrow /></span>}
                 id="input-group-dropdown-1"
             >
-                <Dropdown.Item href="#">Action</Dropdown.Item>
-                <Dropdown.Item href="#">Another action</Dropdown.Item>
-                <Dropdown.Item href="#">Something else here</Dropdown.Item>
-                <Dropdown.Item href="#">Separated link</Dropdown.Item>
+                {mondays.map((monday, index) => (
+                    <Dropdown.Item
+                        key={index}
+                        value={formatDateWithYear(monday)}
+                        onClick={() => handleSelectDate(monday)}
+                    // onSelect={onSelect}
+                    >
+                        {formatDate(monday)}
+                    </Dropdown.Item>
+                ))}
             </DropdownButton>
         </div>
     );

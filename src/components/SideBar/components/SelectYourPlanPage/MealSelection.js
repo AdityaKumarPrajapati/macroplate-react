@@ -1,4 +1,3 @@
-// src/components/SideBar/components/MealSelection.js
 import React from "react";
 import MealsPerDay from "./MealsPerDay";
 import ProgramLength from "./ProgramLength";

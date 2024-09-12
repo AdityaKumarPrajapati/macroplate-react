@@ -1,8 +1,7 @@
-// src/components/SideBar/components/MealSelectionWrapper.js
 import React from "react";
 import '../../css/MealSelectionWrapper.css';
 
-const MealSelectionWrapper = ({ dataObj, headetText, inputComponent, onChange, checkedValues, componentType }) => {
+const MealSelectionWrapper = ({ dataObj, headetText, inputComponent, onChange, checkedValues, componentType, checkoutData }) => {
     return (
         <div className="mealSelectionContentContainer">
             {headetText && <div className={`mealSelectionContentText ${componentType === 'counter' ? 'addonSelectionContentText' : ''}`}>
@@ -16,13 +15,14 @@ const MealSelectionWrapper = ({ dataObj, headetText, inputComponent, onChange, c
                             id: item?.id,
                             value: item?.dataValue, // Pass dataValue as the value
                             onChange: onChange,
-                            checked: Array.isArray(checkedValues)
+                            checked: componentType !== 'accordion' && Array.isArray(checkedValues)
                                 ? checkedValues.includes(item?.dataValue) // For checkboxes
                                 : checkedValues === item?.dataValue, // For radio buttons, compare to dataValue
                             count: componentType === 'counter' ? item.count : undefined,
                             inputName: componentType === 'counter' ? item.name : undefined,
-                            data: componentType === 'accordion' ? item : undefined
-                        })}
+                            data: componentType === 'accordion' ? item : undefined,
+                            checkoutData: componentType === 'accordion' ? checkoutData : undefined
+                        })} 
                         <div className="labelContainer">
                             <label
                                 htmlFor={item?.id}
