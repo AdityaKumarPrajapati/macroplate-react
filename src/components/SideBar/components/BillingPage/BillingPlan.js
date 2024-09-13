@@ -1,9 +1,12 @@
 import React from "react";
+import CardDetails from './CardDetails'
+
 
 const BillingPlan = ({ checkoutData, setCheckoutData, validationErrors, setValidationErrors }) => {
+
     return (
-        <div>
-            Page 3
+        <div >
+            <CardDetails></CardDetails>
         </div>
     );
 }
