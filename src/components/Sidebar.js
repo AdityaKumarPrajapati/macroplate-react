@@ -10,12 +10,19 @@ import BackButtonSvg from './utilityComponents/BackButtonSvg';
 import SidebarButton from './utilityComponents/SidebarButton';
 import ShippingPlan from './SideBar/components/ShippingPage/ShippingPlan';
 import BillingPlan from './SideBar/components/BillingPage/BillingPlan';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
+// Load your Stripe public key
+const stripePromise = loadStripe('pk_test_pndCOLy4iBu4IWLtmiIiPGF5');
+
 
 const Sidebar = () => {
     const { isSidebarOpen } = useSidebar();
 
     // Function to get initial data from localStorage or set default values
     const getInitialData = () => {
+
         const savedData = localStorage.getItem('checkoutData');
         return savedData
             ? JSON.parse(savedData)
@@ -78,6 +85,18 @@ const Sidebar = () => {
             if (!checkoutData.city) errors.city = 'Please Enter Your City';
             if (!checkoutData.state) errors.state = 'Please Enter Your State';
             if (!checkoutData.zipCode) errors.zipCode = 'Please enter your ZIP code';
+        // } else if (currentPage === 3) {
+        //     let cardNumber = document.getElementById('cardNumber').value
+        //     let expiryMonth = document.getElementById('expiryMonth').value
+        //     let expiryYear = document.getElementById('expiryYear').value
+        //     let cvv = document.getElementById('cvv').value
+
+        //     if (!cardNumber) errors.cardNumber = 'Please enter card number';
+        //     if (!expiryMonth) errors.expiryMonth = 'Please enter expiry month';
+        //     if (!expiryYear) errors.expiryYear = 'Please Enter expiry year';
+        //     if (!cvv) errors.cvv = 'Please Enter cvv';
+
+        //     // console.log(errors, "errors");
         }
 
         return errors;
@@ -91,6 +110,47 @@ const Sidebar = () => {
             setValidationErrors({});
             setCurrentPage(nextPage); // Proceed to next page
         }
+
+               
+        
+        // const cardElement = elements.getElement(CardElement);
+        // if (!stripe || !cardElement) {
+        //     return;
+        // }
+        // console.log(cardElement, "cardelemtn");
+
+        // const cardNumber = document.getElementById('checkout-card-number').value;
+        // const cardExpMonth = document.getElementById('checkout-card-month').value;
+        // const cardExpYear = document.getElementById('checkout-card-year').value;
+        // const cardCvv = document.getElementById('checkout-card-cvv').value;
+
+        // Validate the card details
+        // const validationErrors = validateCardDetails(cardNumber, cardExpMonth, cardExpYear, cardCvv);
+
+        // if (Object.keys(validationErrors).length > 0) {
+        //     setErrors(validationErrors);
+        //     setLoading(false);
+        //     return;
+        // }
+
+        // Create payment method using Stripe
+        // const { error, token } =  stripe.createToken(cardElement, {
+        //     number: cardNumber,
+        //     'exp-month': cardExpMonth,
+        //     'exp-year': cardExpYear,
+        //     cvc: cardCvv
+        // });
+
+        // if (error) {
+        //     // setErrors({ stripe: error.message });
+        //     // setLoading(false);
+        // } else {
+        //     setToken(token.id); // You can use this token in the backend to complete the charge
+        //     console.log('Token created:', token);
+        //     // Send the token to the backend here for further processing
+        // }
+
+        // setLoading(false);
     };
 
     return (
@@ -140,13 +200,16 @@ const Sidebar = () => {
                         setCurrentPage={setCurrentPage}
                     />
                     <div>
+                    <Elements stripe={stripePromise}>
                         <BillingPlan 
                             checkoutData={checkoutData}
                             setCheckoutData={setCheckoutData}
                             validationErrors={validationErrors}
                             setValidationErrors={setValidationErrors}
                         />
-                        <SidebarButton onCheckoutClick={() => handleCheckoutClick(3)} text='PLACE ORDER' />
+                    </Elements>,
+
+                        {/* <SidebarButton onCheckoutClick={() => handleCheckoutClick(3)} text='PLACE ORDER' /> */}
                     </div>
                 </div>
             )}
