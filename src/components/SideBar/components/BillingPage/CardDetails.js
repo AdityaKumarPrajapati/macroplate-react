@@ -1,5 +1,4 @@
-// src/components/CardDetails.js
-import React, { useState } from 'react';
+import React, { useState, useImperativeHandle, forwardRef } from 'react';
 import { useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement } from '@stripe/react-stripe-js';
 import '../../css/CardDetails.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -23,7 +22,8 @@ const CARD_ELEMENT_OPTIONS = {
     },
 };
 
-const CardDetails = () => {
+// Use forwardRef to expose handleSubmit to parent component
+const CardDetails = forwardRef(({ onSubmit }, ref) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardBrand, setCardBrand] = useState('');
@@ -34,8 +34,7 @@ const CardDetails = () => {
         }
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const handleSubmit = async () => {
         if (!stripe || !elements) {
             return;
         }
@@ -46,10 +45,15 @@ const CardDetails = () => {
         if (error) {
             console.error(error.message);
         } else {
-            console.log(token);
-            // Handle the token (e.g., send it to your server)
+            console.log('----tokennn---', token);
+            onSubmit(token); // Pass the token back to the parent component
         }
     };
+
+    // Expose the handleSubmit function to parent via ref
+    useImperativeHandle(ref, () => ({
+        handleSubmit
+    }));
 
     const getBrandIconClass = (brand) => {
         switch (brand) {
@@ -98,12 +102,8 @@ const CardDetails = () => {
                     />
                 </div>
             </div>
-            <button onClick={handleSubmit} disabled={!stripe}>
-                PLACE ORDER
-            </button>
-
         </div>
     );
-};
+});
 
 export default CardDetails;

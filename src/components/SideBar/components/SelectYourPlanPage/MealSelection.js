@@ -33,8 +33,8 @@ const MealSelection = ({ checkoutData, setCheckoutData, validationErrors, setVal
             <DietaryPreferencesSelection
                 checkoutData={checkoutData}
                 setCheckoutData={setCheckoutData}
-                validationError={validationErrors.dietaryPreferences}
-                setValidationErrors={setValidationErrors} // Pass setValidationErrors here
+                // validationError={validationErrors.dietaryPreferences}
+                // setValidationErrors={setValidationErrors}
             />
             <hr />
             <DietaryExclusions

@@ -25,48 +25,51 @@ const ReviewPage = ({ checkoutData }) => {
 
                 {
                     checkoutData.snackProtein &&
-                    <div className="reviewPageContentBox">
-                        <div className="reviewContentTitleContainer">
-                            <p className="reviewTitletext marginZero">Snack Plan</p>
+                    <>
+                        <div className="reviewPageContentBox">
+                            <div className="reviewContentTitleContainer">
+                                <p className="reviewTitletext marginZero">Snack Plan</p>
+                            </div>
+                            <div className="reviewPlanContentConatiner">
+                                <p className="reviewPlanContent marginZero">Snacks - {checkoutData.mealPerDay} Per Day - {checkoutData.programLength} Days</p>
+                                <p className="reviewPlanContentPrice marginZero">${proteinSnackPrice({ checkoutData })}</p>
+                            </div>
                         </div>
-                        <div className="reviewPlanContentConatiner">
-                            <p className="reviewPlanContent marginZero">Snacks - {checkoutData.mealPerDay} Per Day - {checkoutData.programLength} Days</p>
-                            <p className="reviewPlanContentPrice marginZero">${proteinSnackPrice({ checkoutData })}</p>
-                        </div>
-                    </div>
+                        <hr />
+                    </>
                 }
-
-                <hr />
 
                 {
                     checkoutData.proteinSmoothy &&
-                    <div className="reviewPageContentBox">
-                        <div className="reviewContentTitleContainer">
-                            <p className="reviewTitletext marginZero">Protein Smoothie</p>
+                    <>
+                        <div className="reviewPageContentBox">
+                            <div className="reviewContentTitleContainer">
+                                <p className="reviewTitletext marginZero">Protein Smoothie</p>
+                            </div>
+                            <div className="reviewPlanContentConatiner">
+                                <p className="reviewPlanContent marginZero">Smoothies - {checkoutData.mealPerDay} Per Day - {checkoutData.programLength} Days</p>
+                                <p className="reviewPlanContentPrice marginZero">${proteinSmoothyPrice({ checkoutData })}</p>
+                            </div>
                         </div>
-                        <div className="reviewPlanContentConatiner">
-                            <p className="reviewPlanContent marginZero">Smoothies - {checkoutData.mealPerDay} Per Day - {checkoutData.programLength} Days</p>
-                            <p className="reviewPlanContentPrice marginZero">${proteinSmoothyPrice({ checkoutData })}</p>
-                        </div>
-                    </div>
+                        <hr />
+                    </>
                 }
-
-                <hr />
 
                 {
                     checkoutData.juice &&
-                    <div className="reviewPageContentBox">
-                        <div className="reviewContentTitleContainer">
-                            <p className="reviewTitletext marginZero">Cold Pressed Juice</p>
+                    <>
+                        <div className="reviewPageContentBox">
+                            <div className="reviewContentTitleContainer">
+                                <p className="reviewTitletext marginZero">Cold Pressed Juice</p>
+                            </div>
+                            <div className="reviewPlanContentConatiner">
+                                <p className="reviewPlanContent marginZero">Juices - {checkoutData.mealPerDay} Per Day - {checkoutData.programLength} Days</p>
+                                <p className="reviewPlanContentPrice marginZero">${juicePrice({ checkoutData })}</p>
+                            </div>
                         </div>
-                        <div className="reviewPlanContentConatiner">
-                            <p className="reviewPlanContent marginZero">Juices - {checkoutData.mealPerDay} Per Day - {checkoutData.programLength} Days</p>
-                            <p className="reviewPlanContentPrice marginZero">${juicePrice({ checkoutData })}</p>
-                        </div>
-                    </div>
+                        <hr />
+                    </>
                 }
-
-                <hr />
 
                 {
                     checkoutData.coffee &&

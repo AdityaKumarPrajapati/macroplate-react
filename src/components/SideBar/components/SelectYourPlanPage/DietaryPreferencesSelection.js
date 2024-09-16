@@ -4,7 +4,7 @@ import MealSelectionWrapper from "./MealSelectionWrapper";
 import CheckboxButton from "../../../utilityComponents/CheckboxButton";
 import { dietaryPreferenceRules } from "../../../../rules/dietaryPreferenceRules";
 
-const DietaryPreferencesSelection = ({ checkoutData, setCheckoutData, validationError, setValidationErrors }) => {
+const DietaryPreferencesSelection = ({ checkoutData, setCheckoutData }) => {
 
     const handleChange = (e) => {
         const selectedValue = e.target.value;
@@ -21,7 +21,7 @@ const DietaryPreferencesSelection = ({ checkoutData, setCheckoutData, validation
                 allergies: updatedAllergies,
             };
         });
-        setValidationErrors(prev => ({ ...prev, dietary: null }));
+        // setValidationErrors(prev => ({ ...prev, dietary: null }));
     };
 
     const updateAllergies = (preferences) => {
@@ -53,7 +53,7 @@ const DietaryPreferencesSelection = ({ checkoutData, setCheckoutData, validation
                 onChange={handleChange}
                 checkedValues={checkoutData.dietary} // Array of selected values
             />
-            {validationError && <p className="error-text">{validationError}</p>}
+            {/* {validationError && <p className="error-text">{validationError}</p>} */}
         </div>
     );
 }

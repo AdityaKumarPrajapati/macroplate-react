@@ -16,34 +16,10 @@ import { Elements } from '@stripe/react-stripe-js';
 // Load your Stripe public key
 const stripePromise = loadStripe('pk_test_pndCOLy4iBu4IWLtmiIiPGF5');
 
-const appearance = {
-    theme: 'night',
-    variables: {
-        colorPrimary: '#4a90e2',
-        colorBackground: '#1e1e1e',
-        colorText: '#ffffff',
-        borderRadius: '4px',
-        spacingUnit: '4px',
-        fontFamily: 'Arial, sans-serif',
-    },
-    rules: {
-        '.Input': {
-            backgroundColor: '#2a2a2a',
-            color: '#ffffff',
-            borderColor: '#4a90e2',
-        },
-        '.Input:focus': {
-            borderColor: '#6ab7e9',
-        },
-        '.Error': {
-            color: '#ff4d4f',
-        },
-    },
-};
-
-
 const Sidebar = () => {
     const { isSidebarOpen } = useSidebar();
+    const [currentPage, setCurrentPage] = useState(1);
+    const [validationErrors, setValidationErrors] = useState({});
 
     // Function to get initial data from localStorage or set default values
     const getInitialData = () => {
@@ -78,10 +54,7 @@ const Sidebar = () => {
             };
     };
 
-    const [currentPage, setCurrentPage] = useState(1);
     const [checkoutData, setCheckoutData] = useState(getInitialData);
-
-    const [validationErrors, setValidationErrors] = useState({});
 
     useEffect(() => {
         // Save checkoutData to localStorage whenever it changes
@@ -100,7 +73,6 @@ const Sidebar = () => {
             if (!checkoutData.mealPerDay) errors.mealPerDay = 'Please select meals per day';
             if (!checkoutData.programLength) errors.programLength = 'Please select a program length';
             if (!checkoutData.breakfastSelection) errors.breakfastSelection = 'Please select a breakfast option';
-            if (checkoutData.dietary.length === 0) errors.dietary = 'Please select at least one dietary preference';
             if (!checkoutData.email) {
                 errors.email = 'Please enter your email address';
             } else if (!isValidEmail(checkoutData.email)) {
@@ -140,47 +112,6 @@ const Sidebar = () => {
             setValidationErrors({});
             setCurrentPage(nextPage); // Proceed to next page
         }
-
-               
-        
-        // const cardElement = elements.getElement(CardElement);
-        // if (!stripe || !cardElement) {
-        //     return;
-        // }
-        // console.log(cardElement, "cardelemtn");
-
-        // const cardNumber = document.getElementById('checkout-card-number').value;
-        // const cardExpMonth = document.getElementById('checkout-card-month').value;
-        // const cardExpYear = document.getElementById('checkout-card-year').value;
-        // const cardCvv = document.getElementById('checkout-card-cvv').value;
-
-        // Validate the card details
-        // const validationErrors = validateCardDetails(cardNumber, cardExpMonth, cardExpYear, cardCvv);
-
-        // if (Object.keys(validationErrors).length > 0) {
-        //     setErrors(validationErrors);
-        //     setLoading(false);
-        //     return;
-        // }
-
-        // Create payment method using Stripe
-        // const { error, token } =  stripe.createToken(cardElement, {
-        //     number: cardNumber,
-        //     'exp-month': cardExpMonth,
-        //     'exp-year': cardExpYear,
-        //     cvc: cardCvv
-        // });
-
-        // if (error) {
-        //     // setErrors({ stripe: error.message });
-        //     // setLoading(false);
-        // } else {
-        //     setToken(token.id); // You can use this token in the backend to complete the charge
-        //     console.log('Token created:', token);
-        //     // Send the token to the backend here for further processing
-        // }
-
-        // setLoading(false);
     };
 
     return (
@@ -240,8 +171,6 @@ const Sidebar = () => {
                             currentPage={currentPage}
                         />
                     </Elements>
-
-                        {/* <SidebarButton onCheckoutClick={() => handleCheckoutClick(3)} text='PLACE ORDER' /> */}
                     </div>
                 </div>
             )}
