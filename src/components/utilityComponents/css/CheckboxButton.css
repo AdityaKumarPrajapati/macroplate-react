@@ -1,5 +1,10 @@
 @import url('../../css/Global.css');
 
+.checkBoxContainer {
+    display: flex;
+    gap: 9px;
+}
+
 .customCheckboxBtn input {
     width: 24px;
     height: 24px;
@@ -42,4 +47,15 @@
     border-width: 0 0 3px 3.1px;
     top: 5px;
     left: 2px;
+}
+
+.formLabel {
+    color: var(--Secondary-Blue-70, #4F6677);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    align-items: center;
 }

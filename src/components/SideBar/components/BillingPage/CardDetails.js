@@ -69,39 +69,39 @@ const CardDetails = () => {
     return (
         <div className="card-details-wrapper">
             <p className='marginZero personalInfoText'>CARD INFO</p>
-            <form onSubmit={handleSubmit}>
-                <div className="card-details-container">
-                    <div className="card-number-container">
-                        <CardNumberElement
-                            id="card-number"
-                            options={CARD_ELEMENT_OPTIONS}
-                            onChange={handleCardChange}
-                            className="card-number"
-                        />
-                        {cardBrand && (
-                            <i
-                                className={`card-brand-icon ${getBrandIconClass(cardBrand)}`}
-                                aria-hidden="true"
-                            ></i>
-                        )}
-                    </div>
-                    <div className="expiry-cvc-container">
-                        <CardExpiryElement
-                            id="card-expiry"
-                            options={CARD_ELEMENT_OPTIONS}
-                            className="expiry"
-                        />
-                        <CardCvcElement
-                            id="card-cvc"
-                            options={CARD_ELEMENT_OPTIONS}
-                            className="cvc"
-                        />
-                    </div>
+
+            <div className="card-details-container">
+                <div className="card-number-container">
+                    <CardNumberElement
+                        id="card-number"
+                        options={CARD_ELEMENT_OPTIONS}
+                        onChange={handleCardChange}
+                        className="card-number"
+                    />
+                    {cardBrand && (
+                        <i
+                            className={`card-brand-icon ${getBrandIconClass(cardBrand)}`}
+                            aria-hidden="true"
+                        ></i>
+                    )}
                 </div>
-                <button type="submit" disabled={!stripe}>
-                    PLACE ORDER
-                </button>
-            </form>
+                <div className="expiry-cvc-container">
+                    <CardExpiryElement
+                        id="card-expiry"
+                        options={CARD_ELEMENT_OPTIONS}
+                        className="expiry"
+                    />
+                    <CardCvcElement
+                        id="card-cvc"
+                        options={CARD_ELEMENT_OPTIONS}
+                        className="cvc"
+                    />
+                </div>
+            </div>
+            <button onClick={handleSubmit} disabled={!stripe}>
+                PLACE ORDER
+            </button>
+
         </div>
     );
 };

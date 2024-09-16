@@ -4,14 +4,17 @@ import Form from 'react-bootstrap/Form';
 
 const CheckboxButton = ({ id, value, onChange, checked, label }) => {
     return (
-        <Form.Check
-            type="checkbox"
-            id={id}
-            value={value}
-            className="customCheckboxBtn"
-            onChange={onChange}
-            checked={checked}
-        />
+        <div className="checkBoxContainer">
+            <Form.Check
+                type="checkbox"
+                id={id}
+                value={value}
+                className="customCheckboxBtn"
+                onChange={onChange}
+                checked={checked}
+            />
+            {label && <Form.Check.Label className="formLabel">{label}</Form.Check.Label>}
+        </div>
     );
 }
 

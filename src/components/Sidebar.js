@@ -71,6 +71,7 @@ const Sidebar = () => {
                 deliveryNotes: '',
                 firstDeliveryDate: '',
                 billingAddress: '',
+                billingSuite: '',
                 billingCity: '',
                 billingState: '',
                 billingZipCode: ''
