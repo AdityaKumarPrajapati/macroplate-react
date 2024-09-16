@@ -16,6 +16,31 @@ import { Elements } from '@stripe/react-stripe-js';
 // Load your Stripe public key
 const stripePromise = loadStripe('pk_test_pndCOLy4iBu4IWLtmiIiPGF5');
 
+const appearance = {
+    theme: 'night',
+    variables: {
+        colorPrimary: '#4a90e2',
+        colorBackground: '#1e1e1e',
+        colorText: '#ffffff',
+        borderRadius: '4px',
+        spacingUnit: '4px',
+        fontFamily: 'Arial, sans-serif',
+    },
+    rules: {
+        '.Input': {
+            backgroundColor: '#2a2a2a',
+            color: '#ffffff',
+            borderColor: '#4a90e2',
+        },
+        '.Input:focus': {
+            borderColor: '#6ab7e9',
+        },
+        '.Error': {
+            color: '#ff4d4f',
+        },
+    },
+};
+
 
 const Sidebar = () => {
     const { isSidebarOpen } = useSidebar();
@@ -44,7 +69,11 @@ const Sidebar = () => {
                 city: '',
                 state: '',
                 deliveryNotes: '',
-                firstDeliveryDate: ''
+                firstDeliveryDate: '',
+                billingAddress: '',
+                billingCity: '',
+                billingState: '',
+                billingZipCode: ''
             };
     };
 
@@ -187,6 +216,7 @@ const Sidebar = () => {
                                 setCheckoutData={setCheckoutData}
                                 validationErrors={validationErrors}
                                 setValidationErrors={setValidationErrors}
+                                currentPage={currentPage}
                             />
                         </div>
                         <SidebarButton onCheckoutClick={() => handleCheckoutClick(3)} text='CONTINUE TO CHECKOUT' />
@@ -206,8 +236,9 @@ const Sidebar = () => {
                             setCheckoutData={setCheckoutData}
                             validationErrors={validationErrors}
                             setValidationErrors={setValidationErrors}
+                            currentPage={currentPage}
                         />
-                    </Elements>,
+                    </Elements>
 
                         {/* <SidebarButton onCheckoutClick={() => handleCheckoutClick(3)} text='PLACE ORDER' /> */}
                     </div>

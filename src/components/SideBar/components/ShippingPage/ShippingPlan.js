@@ -3,7 +3,7 @@ import PersonalInfo from "./PersonalInfo";
 import '../../css/ShippingPlan.css'
 import DeliveryInfo from "../DeliveryInfo";
 
-const ShippingPlan = ({ checkoutData, setCheckoutData, validationErrors, setValidationErrors }) => {
+const ShippingPlan = ({ checkoutData, setCheckoutData, validationErrors, setValidationErrors, currentPage }) => {
     return (
         <>
             <PersonalInfo
@@ -18,6 +18,8 @@ const ShippingPlan = ({ checkoutData, setCheckoutData, validationErrors, setVali
                 setCheckoutData={setCheckoutData}
                 validationErrors={validationErrors}
                 setValidationErrors={setValidationErrors}
+                currentPage={currentPage}
+                headerText = 'DELIVERY INFO'
             />
 
         </>

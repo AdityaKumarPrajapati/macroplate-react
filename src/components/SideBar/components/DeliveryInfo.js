@@ -2,12 +2,13 @@ import React from "react";
 import InputField from "../../utilityComponents/InputField";
 import TextAreaField from "../../utilityComponents/TextAreaField";
 import DropdownComponent from "../../utilityComponents/DropdownComponent";
+import CheckboxButton from "../../utilityComponents/CheckboxButton";
 
-const DeliveryInfo = ({ checkoutData, setCheckoutData, validationErrors, setValidationErrors }) => {
+const DeliveryInfo = ({ checkoutData, setCheckoutData, validationErrors, setValidationErrors, currentPage, headerText }) => {
     const handleDeliveryInfoData = (e) => {
         const { name, value } = e.target;
         setCheckoutData((prev) => ({ ...prev, [name]: value }));
-        setValidationErrors((prev) => ({ ...prev, [name]: null })); 
+        setValidationErrors((prev) => ({ ...prev, [name]: null }));
     }
 
     const handleFirstDeliveryDate = (date) => {
@@ -15,7 +16,10 @@ const DeliveryInfo = ({ checkoutData, setCheckoutData, validationErrors, setVali
     }
     return (
         <div className="deliveryInfoWrapper">
-            <p className="marginZero personalInfoText">DELIVERY INFO</p>
+            <p className="marginZero personalInfoText">{headerText}</p>
+            <CheckboxButton 
+                label='Same As Delivery Address'
+            />
             <div className="step2InputBoxContainerWrapper">
                 <InputField
                     placeHolder='Delivery Address'
@@ -76,22 +80,27 @@ const DeliveryInfo = ({ checkoutData, setCheckoutData, validationErrors, setVali
                 </div>
             </div>
 
-            <div className="deliveryInstructionsContainer">
-                <TextAreaField 
-                    wrapperClass='deliveryInstructions'
-                    placeHolder='Delivery Instructions / Access Codes'
-                    value={checkoutData.deliveryNotes}
-                    onChange={handleDeliveryInfoData}
-                    name='deliveryNotes'
-                    id='delivery_notes'
-                />
-            </div>
+            {currentPage === 2 &&
 
-            <div className="nextDeliveryDropdownContainer">
-                <DropdownComponent 
-                    onSelect={handleFirstDeliveryDate}
-                />
-            </div>
+                <>
+                    <div className="deliveryInstructionsContainer">
+                        <TextAreaField
+                            wrapperClass='deliveryInstructions'
+                            placeHolder='Delivery Instructions / Access Codes'
+                            value={checkoutData.deliveryNotes}
+                            onChange={handleDeliveryInfoData}
+                            name='deliveryNotes'
+                            id='delivery_notes'
+                        />
+                    </div>
+
+                    <div className="nextDeliveryDropdownContainer">
+                        <DropdownComponent
+                            onSelect={handleFirstDeliveryDate}
+                        />
+                    </div>
+                </>
+            }
         </div>
     );
 }
