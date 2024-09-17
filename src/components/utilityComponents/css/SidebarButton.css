@@ -26,3 +26,17 @@
     border-radius: 0;
     font-family: var(--suissecond-int-normal);
 }
+
+.tNcCondition {
+    text-align: left;
+    color: var(--Primary-Black-100, #020202);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.termsLink {
+    text-decoration: none;
+}

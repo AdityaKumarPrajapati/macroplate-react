@@ -33,7 +33,11 @@ const BillingPlan = ({ checkoutData, setCheckoutData, validationErrors, setValid
                 currentPage={currentPage}
                 headerText='BILLING ADDRESS'
             />
-            <SidebarButton onCheckoutClick={handlePlaceOrder} text='PLACE ORDER' />
+            <SidebarButton
+                onCheckoutClick={handlePlaceOrder}
+                text='PLACE ORDER'
+                currentPage={currentPage}
+            />
         </div>
     );
 };
