@@ -1,11 +1,15 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// Create AuthContext
 const AuthContext = createContext();
 
-// Custom hook to use the AuthContext
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+    const context = useContext(AuthContext);
+    if (!context) {
+        throw new Error('useAuth must be used within an AuthProvider');
+    }
+    return context;
+};
 
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,6 +28,13 @@ export const AuthProvider = ({ children }) => {
         setUser(userData);
         setIsLoggedIn(true);
         localStorage.setItem('user', JSON.stringify(userData));
+        localStorage.removeItem('checkoutData');
+
+        if (userData?.user_type === 'admin') {
+            navigate('/admin/dashboard');
+        } else if (userData?.user_type === 'user') {
+            navigate('/dashboard');
+        }
     };
 
     const logout = () => {

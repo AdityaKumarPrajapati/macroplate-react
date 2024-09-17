@@ -1,37 +1,18 @@
-// src/App.js
 import React from 'react';
 import './App.css';
-import '../src/components/css/Global.css'
-import NavBarComponents from './components/NavBarComponents';
-import FixedComponent from './components/FixedComponent';
-import HOWITWORKS from './components/HOWITWORKS';
-import OurApproach from './components/OurApproach';
-import Home from './components/Home';
-import Login from './components/Login';
-import CustomerDashboard from './components/CustomerDashboard';
-import Footer from './components/Footer';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import '../src/components/css/Global.css';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { SidebarProvider } from '../src/components/context/SidebarContext';
-import { AuthProvider } from '../src/components/context/AuthContext';
+import { AuthProvider } from '../src/components/context/AuthContext'; // Ensure this import is correct
+import AppRouter from './router/AppRouter';
 
 function App() {
   return (
     <Router>
-      <AuthProvider>
+      <AuthProvider> {/* Wrapping the entire app with AuthProvider */}
         <SidebarProvider>
           <div className="App">
-            <FixedComponent />
-            <NavBarComponents />
-            <div className="content">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/how-it-works" element={<HOWITWORKS />} />
-                <Route path="/our-approach" element={<OurApproach />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/dashboard" element={<CustomerDashboard />} />
-              </Routes>
-            </div>
-            <Footer />
+            <AppRouter />
           </div>
         </SidebarProvider>
       </AuthProvider>

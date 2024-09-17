@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext'; // Import the context
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
   const { login } = useAuth(); // Use login from AuthContext
 
   const handleSubmit = async (e) => {
@@ -24,12 +22,8 @@ const Login = () => {
       const data = await loginResult.json();
       console.log('Login successful:', data.user);
 
-      // Use login function from AuthContext to update state
+      // Use login function from AuthContext to update state and redirect
       login(data.user);
-
-      if (data?.user?.user_type === 'admin') {
-        navigate('/dashboard');
-      }
     } else {
       const errorData = await loginResult.json();
       document.getElementById('errorElement').innerHTML = errorData.message;
@@ -64,9 +58,9 @@ const Login = () => {
       <button type="submit" style={buttonStyle}>Login</button>
     </form>
   );
-}
+};
 
-// Styles for the form and its elements
+// Styles...
 const formStyle = {
   maxWidth: '300px',
   margin: '0 auto',
@@ -109,6 +103,4 @@ const loginError = {
   color: 'red'
 }
 
-
 export default Login;
-
