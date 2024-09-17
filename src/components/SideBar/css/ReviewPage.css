@@ -67,3 +67,36 @@ p.reviewPlanContentPrice {
     line-height: normal;
     letter-spacing: 0.08px;
 }
+
+.calculationWrapper, 
+.totalAmountCalculationWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.calculationWrapper {
+    gap: 24px;
+}
+
+.totalAmountCalculationWrapper {
+    gap: 18px;
+}
+
+.totalAmountAndCouponCodeWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 16px 24px;
+}
+
+.totalAmountText,
+.totalAmountPrice {
+    color: var(--Universal-Colors-Black, #000);
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
+

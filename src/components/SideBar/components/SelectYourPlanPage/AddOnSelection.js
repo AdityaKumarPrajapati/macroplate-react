@@ -5,22 +5,27 @@ import Counter from "../../../utilityComponents/Counter";
 
 const AddOnSelection = ({ checkoutData, setCheckoutData }) => {
     const handleCountChange = (name, newCount) => {
-        console.log('---newCount---', newCount, name);
         setCheckoutData(prev => ({
             ...prev,
             [name]: newCount
         }));
     };
-    
+
     return (
         <div className="mealSelectionWrapper">
             <MealSelectionWrapper
                 dataObj={AddonContentData}
-                headetText='ADD ONS'
-                inputComponent={<Counter onChange={handleCountChange} />}
+                headetText="ADD ONS"
+                // Pass Counter directly as the component and handle value passing
+                inputComponent={
+                    <Counter 
+                        onChange={handleCountChange} 
+                    />
+                }
                 onChange={handleCountChange}
                 checkedValues={[]}
-                componentType='counter'
+                componentType="counter"
+                checkoutData={checkoutData}  // Make sure to pass checkoutData here
             />
         </div>
     );

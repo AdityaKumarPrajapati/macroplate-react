@@ -63,3 +63,7 @@ export const coffeePrice = ({ checkoutData }) => {
             checkoutData.programLength / 100);
     }
 }
+
+export const getTotalAmountWithDeliveryFeeAndDiscount = (subTotalAmount, programLength, dailyDeliveryFee, discount) => {
+    return parseFloat(subTotalAmount) + (parseFloat(dailyDeliveryFee) * programLength);
+}
