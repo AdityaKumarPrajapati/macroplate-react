@@ -54,7 +54,8 @@ const Sidebar = () => {
                 billingSuite: '',
                 billingCity: '',
                 billingState: '',
-                billingZipCode: ''
+                billingZipCode: '',
+                planId: ''
             };
     };
 

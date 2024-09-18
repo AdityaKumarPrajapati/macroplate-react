@@ -4,6 +4,7 @@ import ReviewPage from './ReviewPage';
 import '../../css/BillingPlan.css';
 import DeliveryInfo from '../DeliveryInfo';
 import SidebarButton from '../../../utilityComponents/SidebarButton';
+import axios from 'axios';
 
 const BillingPlan = ({ checkoutData, setCheckoutData, validationErrors, setValidationErrors, currentPage }) => {
     const cardDetailsRef = useRef();
@@ -15,9 +16,29 @@ const BillingPlan = ({ checkoutData, setCheckoutData, validationErrors, setValid
     };
 
     const handlePlaceOrder = () => {
+        // console.log(checkoutData);
         if (cardDetailsRef.current) {
             cardDetailsRef.current.handleSubmit();
         }
+
+        axios.post("http://localhost:8000/api/signup", checkoutData, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then((response) => {
+            console.log("RESPONSE", response);
+        }).catch((error) => {
+            if (error.response) {
+                // Request made and server responded with a status code outside the 2xx range
+                console.log("Server Response Error", error.response.data);
+            } else if (error.request) {
+                // Request was made but no response was received
+                console.log("No Response Error", error.request);
+            } else {
+                // Something else happened
+                console.log("General Error", error.message);
+            }
+        });
     };
 
     return (
